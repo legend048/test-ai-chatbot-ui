@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <title>AI Assistant</title>
+  <link rel="stylesheet" href="styles/main.css" />
+  <link rel="stylesheet" href="styles/chat.css" />
+</head>
+<body class="light-theme">
+  <div class="app-container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <button class="new-chat-btn" id="newChatBtn">
+          <span>+ New chat</span>
+        </button>
+        <button class="mobile-close-btn" id="mobileSidebarClose">
+          <span>&times;</span>
+        </button>
+      </div>
+      <div class="sidebar-content">
+        <div class="chat-history" id="chatHistory"></div>
+      </div>
+      <div class="sidebar-footer">
+        <button class="theme-toggle" id="themeToggle">
+          <span class="toggle-icon" id="themeIcon">🌙</span>
+          <span class="toggle-text" id="themeText">Dark mode</span>
+        </button>
+        <div class="user-info">
+          <span class="user-icon">👤</span>
+          <span class="user-name">Guest User</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <header class="main-header">
+        <button class="menu-toggle" id="sidebarToggle">
+          <div class="menu-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </button>
+        <h1 class="main-title">AI Assistant</h1>
+        <button class="clear-chat-btn" id="clearChatBtn">Clear conversation</button>
+      </header>
+
+      <div class="chat-container" id="chatContainer">
+        <div class="welcome-screen" id="welcomeScreen">
+          <div class="welcome-content">
+            <h2>Welcome to AI Assistant</h2>
+            <p>Ask me anything and I'll do my best to help you.</p>
+            
+            <div class="example-prompts">
+              <h3>Example prompts:</h3>
+              <div class="example-grid">
+                <button class="example-btn" data-prompt="Explain quantum computing in simple terms">
+                  Explain quantum computing in simple terms
+                </button>
+                <button class="example-btn" data-prompt="Write a poem about artificial intelligence">
+                  Write a poem about artificial intelligence
+                </button>
+                <button class="example-btn" data-prompt="How do I improve my productivity?">
+                  How do I improve my productivity?
+                </button>
+                <button class="example-btn" data-prompt="What are the best practices for web development?">
+                  What are the best practices for web development?
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="messages" id="messagesContainer"></div>
+      </div>
+
+      <div class="input-container">
+        <form id="chatForm" class="chat-form">
+          <div class="input-wrapper">
+            <textarea 
+              id="userInput" 
+              placeholder="Message AI Assistant..." 
+              rows="1"
+              autocomplete="off"
+            ></textarea>
+            <button type="submit" class="send-btn" id="sendBtn">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M22 2L11 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M22 2L15 22L11 13L2 9L22 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </div>
+        </form>
+        <p class="disclaimer">AI Assistant may produce inaccurate information about people, places, or facts.</p>
+      </div>
+    </main>
+  </div>
+
+  <script type="module" src="scripts/app.js"></script>
+  <script type="module" src="scripts/chat.js"></script>
+  <script type="module" src="scripts/ui.js"></script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <title>AI Assistant - Your Intelligent Chat Companion</title>
+  <link rel="stylesheet" href="styles/landing.css" />
+</head>
+<body class="light-theme">
+  <div class="landing-container">
+    <nav class="navbar">
+      <div class="nav-content">
+        <div class="logo">AI Assistant</div>
+        <button class="theme-toggle" id="themeToggle">
+          <span class="toggle-icon" id="themeIcon">🌙</span>
+        </button>
+      </div>
+    </nav>
+
+    <main class="hero">
+      <div class="hero-content">
+        <h1 class="hero-title">Experience the Future of Conversation</h1>
+        <p class="hero-subtitle">Engage with our advanced AI assistant for intelligent, natural conversations that help you learn, create, and solve problems.</p>
+        <div class="cta-container">
+          <div style="display: flex; gap: 15px;">
+            <a href="/chat.html" class="cta-button">Start Chatting</a>
+            <a href="/form.html" class="cta-button">form page</a>
+          </div>
+          <p class="cta-subtext">No sign-up required - Start instantly</p>
+        </div>
+      </div>
+
+      <div class="features">
+        <div class="feature-card">
+          <div class="feature-icon">💡</div>
+          <h3>Intelligent Responses</h3>
+          <p>Get thoughtful answers to your questions with our advanced AI technology</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🔒</div>
+          <h3>Private & Secure</h3>
+          <p>Your conversations stay private with local storage and no data collection</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">⚡</div>
+          <h3>Lightning Fast</h3>
+          <p>Experience instant responses and smooth interactions</p>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <p>© 2025 AI Assistant. Made with ❤️</p>
+    </footer>
+  </div>
+
+  <script>
+    // Theme toggle functionality
+    const themeToggle = document.getElementById('themeToggle');
+    const themeIcon = document.getElementById('themeIcon');
+
+    function toggleTheme() {
+      const body = document.body;
+      if (body.classList.contains('dark-theme')) {
+        body.classList.remove('dark-theme');
+        themeIcon.textContent = '🌙';
+        localStorage.setItem('theme', 'light');
+      } else {
+        body.classList.add('dark-theme');
+        themeIcon.textContent = '☀️';
+        localStorage.setItem('theme', 'dark');
+      }
+    }
+
+    // Load saved theme
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    
+    if (savedTheme === 'dark' || (savedTheme === null && prefersDark)) {
+      document.body.classList.add('dark-theme');
+      themeIcon.textContent = '☀️';
+    }
+
+    themeToggle.addEventListener('click', toggleTheme);
+  </script>
+</body>
+</html>

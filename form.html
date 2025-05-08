@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Edge Case Form</title>
+  <link rel="stylesheet" href="styles/form.css">
+</head>
+<body>
+  <div class="form-container">
+    <h2>Edge Case Form</h2>
+
+    <form id="edgeCaseForm" novalidate>
+      <!-- Name -->
+      <div class="form-group">
+        <label for="name">Name (Special Characters, Empty, Long Input)</label>
+        <input type="text" id="name" name="name" required>
+        <span class="error-message" id="error-name"></span>
+      </div>
+
+      <!-- Email -->
+      <div class="form-group">
+        <label for="email">Email (Invalid Email)</label>
+        <input type="email" id="email" name="email" required>
+        <span class="error-message" id="error-email"></span>
+      </div>
+
+      <!-- Phone -->
+      <div class="form-group">
+        <label for="phone">Phone Number (Invalid Format)</label>
+        <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
+        <span class="error-message" id="error-phone"></span>
+      </div>
+
+      <!-- Message -->
+      <div class="form-group">
+        <label for="message">Message (Large Input)</label>
+        <textarea id="message" name="message" rows="4"></textarea>
+        <span class="error-message" id="error-message"></span>
+      </div>
+
+      <!-- Gender -->
+      <div class="form-group">
+        <label>Gender (Unchecked Selection)</label>
+        <div class="form-options">
+          <label><input type="radio" name="gender" value="male"> Male</label>
+          <label><input type="radio" name="gender" value="female"> Female</label>
+          <label><input type="radio" name="gender" value="other"> Other</label>
+        </div>
+        <span class="error-message" id="error-gender"></span>
+      </div>
+
+      <!-- Hobbies -->
+      <div class="form-group">
+        <label>Hobbies (Multiple Selections)</label>
+        <div class="form-options">
+          <label><input type="checkbox" name="hobbies" value="reading"> Reading</label>
+          <label><input type="checkbox" name="hobbies" value="travelling"> Travelling</label>
+          <label><input type="checkbox" name="hobbies" value="sports"> Sports</label>
+        </div>
+        <span class="error-message" id="error-hobbies"></span>
+      </div>
+
+      <!-- File Upload -->
+      <div class="form-group">
+        <label for="file">Upload File (File Type and Size)</label>
+        <input type="file" id="file" name="file" accept=".jpg,.png,.pdf">
+        <span class="error-message" id="error-file"></span>
+      </div>
+
+      <!-- Birthdate -->
+      <div class="form-group">
+        <label for="birthdate">Date of Birth (Invalid Date)</label>
+        <input type="date" id="birthdate" name="birthdate">
+        <span class="error-message" id="error-birthdate"></span>
+      </div>
+
+      <!-- Submit -->
+      <button type="submit">Submit</button>
+      <span class="success-message" id="form-success"></span>
+    </form>
+  </div>
+
+  <script src="scripts/form.js"></script>
+</body>
+</html>
