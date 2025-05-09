@@ -89,6 +89,34 @@
 <!--      <span  class="success-message" id="form-success"></span>-->
     </form>
   </div>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('edgeCaseForm');
+    form.addEventListener('submit', function(e) {
+      e.preventDefault(); // prevent the default GET for now
+
+      // collect all fields
+      const data = new FormData(form);
+      const entries = {};
+      for (const [name, value] of data.entries()) {
+        // handle multiple values (e.g. checkboxes)
+        if (entries[name] !== undefined) {
+          entries[name] = Array.isArray(entries[name])
+            ? [...entries[name], value]
+            : [entries[name], value];
+        } else {
+          entries[name] = value;
+        }
+      }
+
+      console.log('Form values:', entries);
+
+      // if you still want to submit after logging, uncomment:
+      // form.submit();
+    });
+  });
+</script>
+
 
 <!--  <script src="scripts/form.js"></script>-->
 </body>
